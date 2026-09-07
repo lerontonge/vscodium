@@ -298,7 +298,7 @@ jobs:
           name: vscode-bin-${{ matrix.slug }}
         if: env.DISABLED != 'yes'
 
-       - name: Make AppImage
+      - name: Make AppImage
         run: ./build/linux/anylinux-appimage/build.sh
         if: env.DISABLED != 'yes'
 
