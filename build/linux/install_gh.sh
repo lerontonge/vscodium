@@ -2,7 +2,17 @@
 
 set -ex
 
-GH_ARCH="amd64"
+UNAME_ARCH=$( uname -m )
+
+if [[ "${UNAME_ARCH}" == "x86_64" ]]; then
+  GH_ARCH="amd64"
+if [[ "${UNAME_ARCH}" == "aarch64" || "${UNAME_ARCH}" == "arm64" ]]; then
+  GH_ARCH="arm64"
+else
+  echo "Cannot install GH on ${UNAME_ARCH}"
+  exit 1
+fi
+
 
 for i in {1..5}; do
   TAG=$( curl --retry 12 --retry-delay 30 "https://api.github.com/repos/cli/cli/releases/latest" 2>/dev/null | jq --raw-output '.tag_name' )
