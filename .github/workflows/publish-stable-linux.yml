@@ -298,14 +298,12 @@ jobs:
           name: vscode-bin-${{ matrix.slug }}
         if: env.DISABLED != 'yes'
 
-      - name: Make AppImage
-        run: ./build/linux/anylinux-appimage/make-appimage.sh
+       - name: Make AppImage
+        run: ./build/linux/anylinux-appimage/build.sh
         if: env.DISABLED != 'yes'
 
-      - name: Move AppImage to assets
-        run: |
-          mkdir -p assets
-          mv dist/*.AppImage* assets/
+      - name: Prepare assets
+        run: ./build/linux/anylinux-appimage/prepare_assets.sh
         if: env.DISABLED != 'yes'
 
       - name: Release

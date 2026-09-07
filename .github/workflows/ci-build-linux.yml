@@ -248,7 +248,7 @@ jobs:
         if: env.DISABLED != 'yes'
 
       - name: Make AppImage
-        run: ./build/linux/anylinux-appimage/make-appimage.sh
+        run: ./build/linux/anylinux-appimage/build.sh
         if: env.DISABLED != 'yes'
 
       - name: Upload AppImage artifact
