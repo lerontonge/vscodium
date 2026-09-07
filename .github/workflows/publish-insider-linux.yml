@@ -279,6 +279,10 @@ jobs:
           node-version-file: .nvmrc
         if: env.DISABLED != 'yes'
 
+      - name: Setup jq
+        uses: vegardit/gha-setup-jq@fae9c6aa0b21dbe5bd3b77d280cf142e0a0a65b4 # 1.1.0
+        if: env.DISABLED != 'yes'
+
       - name: Install GH
         run: ./build/linux/install_gh.sh
         if: env.DISABLED != 'yes'
