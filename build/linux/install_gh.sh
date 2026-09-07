@@ -6,7 +6,7 @@ UNAME_ARCH=$( uname -m )
 
 if [[ "${UNAME_ARCH}" == "x86_64" ]]; then
   GH_ARCH="amd64"
-if [[ "${UNAME_ARCH}" == "aarch64" || "${UNAME_ARCH}" == "arm64" ]]; then
+elif [[ "${UNAME_ARCH}" == "aarch64" || "${UNAME_ARCH}" == "arm64" ]]; then
   GH_ARCH="arm64"
 else
   echo "Cannot install GH on ${UNAME_ARCH}"
